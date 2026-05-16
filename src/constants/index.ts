@@ -53,8 +53,8 @@ export const DESTINO_COLORS: Record<string, { bg: string; text: string }> = {
 };
 
 export const CHART_COLORS = [
-  '#4CAF82', '#E8A838', '#60a5fa', '#e879a0', '#c084fc',
-  '#fb923c', '#34d399', '#f87171', '#a78bfa', '#38bdf8',
+  '#C9A96E', '#5A9469', '#6B8FB8', '#e879a0', '#c084fc',
+  '#D4A574', '#4A9B6F', '#DC7A65', '#a78bfa', '#38bdf8',
 ];
 
 export const GOOGLE_SHEETS_SCOPES = 'https://www.googleapis.com/auth/spreadsheets';

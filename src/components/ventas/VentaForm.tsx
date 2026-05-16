@@ -168,7 +168,7 @@ export const VentaForm: React.FC<VentaFormProps> = ({ editingVenta, onClose }) =
 
           <div style={{ padding: '14px 18px', borderRadius: 10, backgroundColor: valorTotal > 0 ? 'rgba(76,175,130,0.1)' : 'var(--color-surface-2)', border: '1px solid', borderColor: valorTotal > 0 ? 'rgba(76,175,130,0.3)' : 'var(--color-border)', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
             <span style={{ fontSize: '0.8rem', color: 'var(--color-text-secondary)', fontWeight: 500 }}>Valor total calculado</span>
-            <span className="mono tabular" style={{ fontSize: '1.2rem', fontWeight: 700, color: valorTotal > 0 ? '#4CAF82' : 'var(--color-text-muted)' }}>
+            <span className="mono tabular" style={{ fontSize: '1.2rem', fontWeight: 700, color: valorTotal > 0 ? '#C9A96E' : 'var(--color-text-muted)' }}>
               {valorTotal > 0 ? formatCOP(valorTotal) : '—'}
             </span>
           </div>

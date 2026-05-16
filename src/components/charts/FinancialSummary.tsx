@@ -43,7 +43,7 @@ export const FinancialSummary: React.FC = () => {
     return (
       <div style={{ background: 'var(--color-surface-2)', border: '1px solid var(--color-border)', borderRadius: 8, padding: '8px 12px' }}>
         <p style={{ fontSize: '0.72rem', color: 'var(--color-text-muted)' }}>{label}</p>
-        <p style={{ fontWeight: 600, color: '#4CAF82', fontSize: '0.875rem' }}>{formatCOP(payload[0].value)}/kg</p>
+        <p style={{ fontWeight: 600, color: '#C9A96E', fontSize: '0.875rem' }}>{formatCOP(payload[0].value)}/kg</p>
       </div>
     );
   };
@@ -66,7 +66,7 @@ export const FinancialSummary: React.FC = () => {
                     <span style={{ fontSize: '0.85rem', color: 'var(--color-text-secondary)' }}>
                       {label} <span style={{ color: 'var(--color-text-muted)', fontSize: '0.75rem' }}>({count})</span>
                     </span>
-                    <span style={{ fontWeight: 600, fontFamily: 'IBM Plex Mono', fontSize: '0.875rem', color: 'var(--color-accent-light)' }}>
+                    <span style={{ fontWeight: 600, fontFamily: 'JetBrains Mono', fontSize: '0.875rem', color: 'var(--color-accent-light)' }}>
                       {formatCOP(value)}
                     </span>
                   </div>
@@ -98,8 +98,8 @@ export const FinancialSummary: React.FC = () => {
                   <tr key={tipo}>
                     <td style={{ fontSize: '0.82rem', paddingBottom: 8 }}>{tipo}</td>
                     <td style={{ textAlign: 'right', fontSize: '0.82rem', color: 'var(--color-text-secondary)', paddingBottom: 8 }}>{count}</td>
-                    <td style={{ textAlign: 'right', fontFamily: 'IBM Plex Mono', fontSize: '0.8rem', fontWeight: 600, color: '#4CAF82', paddingBottom: 8 }}>{formatCOP(total)}</td>
-                    <td style={{ textAlign: 'right', fontFamily: 'IBM Plex Mono', fontSize: '0.78rem', color: 'var(--color-text-muted)', paddingBottom: 8 }}>{formatCOP(Math.round(total / count))}</td>
+                    <td style={{ textAlign: 'right', fontFamily: 'JetBrains Mono', fontSize: '0.8rem', fontWeight: 600, color: '#C9A96E', paddingBottom: 8 }}>{formatCOP(total)}</td>
+                    <td style={{ textAlign: 'right', fontFamily: 'JetBrains Mono', fontSize: '0.78rem', color: 'var(--color-text-muted)', paddingBottom: 8 }}>{formatCOP(Math.round(total / count))}</td>
                   </tr>
                 ))}
               </tbody>
@@ -118,8 +118,8 @@ export const FinancialSummary: React.FC = () => {
                 <XAxis dataKey="name" tick={axisStyle} axisLine={false} tickLine={false} />
                 <YAxis tick={axisStyle} axisLine={false} tickLine={false} tickFormatter={v => `$${(v / 1000).toFixed(0)}k`} />
                 <Tooltip content={<LineTooltip />} />
-                <Line type="monotone" dataKey="value" stroke="#4CAF82" strokeWidth={2}
-                  dot={{ fill: '#4CAF82', r: 4, strokeWidth: 0 }}
+                <Line type="monotone" dataKey="value" stroke="#C9A96E" strokeWidth={2}
+                  dot={{ fill: '#C9A96E', r: 4, strokeWidth: 0 }}
                   activeDot={{ r: 5, fill: '#5dcc97' }} />
               </LineChart>
             </ResponsiveContainer>

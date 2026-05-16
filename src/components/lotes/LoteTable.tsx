@@ -34,8 +34,8 @@ export const LoteTable: React.FC<LoteTableProps> = ({ onEdit }) => {
       <div className="lote-kpi-row" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 14, marginBottom: 20 }}>
         {[
           { label: 'Total lotes', value: String(lotes.length), color: 'var(--color-text-primary)' },
-          { label: 'Promedio neto por lote', value: lotes.length > 0 ? formatCOP(Math.round(avgNeto)) : '—', color: '#4CAF82' },
-          { label: 'Mejor lote (neto)', value: mejorLote ? formatCOP(mejorLote.total_neto) : '—', sub: mejorLote?.nombre_lote, color: '#E8A838' },
+          { label: 'Promedio neto por lote', value: lotes.length > 0 ? formatCOP(Math.round(avgNeto)) : '—', color: '#C9A96E' },
+          { label: 'Mejor lote (neto)', value: mejorLote ? formatCOP(mejorLote.total_neto) : '—', sub: mejorLote?.nombre_lote, color: '#C9A96E' },
         ].map(({ label, value, color, sub }) => (
           <div key={label} className="card-glass" style={{ padding: '18px 20px' }}>
             <p style={{ fontSize: '0.68rem', fontWeight: 700, color: 'var(--color-text-muted)', textTransform: 'uppercase', letterSpacing: '0.07em', marginBottom: 6 }}>{label}</p>
@@ -93,17 +93,17 @@ export const LoteTable: React.FC<LoteTableProps> = ({ onEdit }) => {
                         </div>
                       </td>
                       <td><Badge label={lote.razon_venta} colorMap={RAZON_COLORS} /></td>
-                      <td style={{ textAlign: 'right', fontFamily: 'IBM Plex Mono', fontSize: '0.82rem' }}>
+                      <td style={{ textAlign: 'right', fontFamily: 'JetBrains Mono', fontSize: '0.82rem' }}>
                         {calcTotalCabezas(lote)}
                       </td>
-                      <td style={{ textAlign: 'right', fontFamily: 'IBM Plex Mono', fontSize: '0.82rem', color: 'var(--color-text-secondary)' }}>
+                      <td style={{ textAlign: 'right', fontFamily: 'JetBrains Mono', fontSize: '0.82rem', color: 'var(--color-text-secondary)' }}>
                         {formatCOP(lote.total_bruto)}
                       </td>
-                      <td style={{ textAlign: 'right', fontFamily: 'IBM Plex Mono', fontSize: '0.82rem', color: '#E05C5C' }}>
+                      <td style={{ textAlign: 'right', fontFamily: 'JetBrains Mono', fontSize: '0.82rem', color: '#D4614A' }}>
                         {lote.total_gastos > 0 ? formatCOP(lote.total_gastos) : <span style={{ color: 'var(--color-text-muted)' }}>—</span>}
                       </td>
                       <td style={{ textAlign: 'right' }}>
-                        <span style={{ fontWeight: 700, color: '#4CAF82', fontFamily: 'IBM Plex Mono', fontSize: '0.9rem' }}>
+                        <span style={{ fontWeight: 700, color: '#C9A96E', fontFamily: 'JetBrains Mono', fontSize: '0.9rem' }}>
                           {formatCOP(lote.total_neto)}
                         </span>
                       </td>
@@ -122,13 +122,13 @@ export const LoteTable: React.FC<LoteTableProps> = ({ onEdit }) => {
                     <td colSpan={4} style={{ padding: '10px 14px', fontSize: '0.78rem', color: 'var(--color-text-muted)', fontWeight: 600 }}>
                       Total ({lotes.length} lotes)
                     </td>
-                    <td style={{ textAlign: 'right', fontFamily: 'IBM Plex Mono', fontSize: '0.8rem', color: 'var(--color-text-secondary)', padding: '10px 14px' }}>
+                    <td style={{ textAlign: 'right', fontFamily: 'JetBrains Mono', fontSize: '0.8rem', color: 'var(--color-text-secondary)', padding: '10px 14px' }}>
                       {formatCOP(lotes.reduce((s, l) => s + l.total_bruto, 0))}
                     </td>
-                    <td style={{ textAlign: 'right', fontFamily: 'IBM Plex Mono', fontSize: '0.8rem', color: '#E05C5C', padding: '10px 14px' }}>
+                    <td style={{ textAlign: 'right', fontFamily: 'JetBrains Mono', fontSize: '0.8rem', color: '#D4614A', padding: '10px 14px' }}>
                       {formatCOP(lotes.reduce((s, l) => s + l.total_gastos, 0))}
                     </td>
-                    <td style={{ textAlign: 'right', fontWeight: 700, color: '#4CAF82', fontFamily: 'IBM Plex Mono', fontSize: '0.9rem', padding: '10px 14px' }}>
+                    <td style={{ textAlign: 'right', fontWeight: 700, color: '#C9A96E', fontFamily: 'JetBrains Mono', fontSize: '0.9rem', padding: '10px 14px' }}>
                       {formatCOP(lotes.reduce((s, l) => s + l.total_neto, 0))}
                     </td>
                     <td />
@@ -162,7 +162,7 @@ export const LoteTable: React.FC<LoteTableProps> = ({ onEdit }) => {
             <div style={{ display: 'flex', gap: 10, justifyContent: 'flex-end' }}>
               <button className="btn btn-secondary" onClick={() => setDeleteTarget(null)}>Cancelar</button>
               <button className="btn" onClick={() => { deleteLote(deleteTarget.id); setDeleteTarget(null); }}
-                style={{ backgroundColor: '#E05C5C', color: '#fff', borderColor: '#E05C5C' }}>
+                style={{ backgroundColor: '#D4614A', color: '#fff', borderColor: '#D4614A' }}>
                 Eliminar
               </button>
             </div>

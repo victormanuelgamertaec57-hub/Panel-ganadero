@@ -226,7 +226,7 @@ export const LoteForm: React.FC<LoteFormProps> = ({ editingLote, onClose }) => {
                             : <span style={{ color: 'var(--color-text-muted)', fontSize: '0.78rem', padding: '0 8px' }}>—</span>
                           )}
                           {td(
-                            <span style={{ fontFamily: 'IBM Plex Mono', fontSize: '0.82rem', fontWeight: 600, color: it.valor_total > 0 ? '#4CAF82' : 'var(--color-text-muted)', whiteSpace: 'nowrap' }}>
+                            <span style={{ fontFamily: 'JetBrains Mono', fontSize: '0.82rem', fontWeight: 600, color: it.valor_total > 0 ? '#C9A96E' : 'var(--color-text-muted)', whiteSpace: 'nowrap' }}>
                               {it.valor_total > 0 ? formatCOP(it.valor_total) : '—'}
                             </span>,
                             { textAlign: 'right', whiteSpace: 'nowrap' }
@@ -241,7 +241,7 @@ export const LoteForm: React.FC<LoteFormProps> = ({ editingLote, onClose }) => {
               <div style={{ padding: '10px 16px', borderTop: '1px solid var(--color-border)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <span style={{ fontSize: '0.78rem', color: 'var(--color-text-muted)' }}>
                   Subtotal bruto:&nbsp;
-                  <strong style={{ color: '#4CAF82', fontFamily: 'IBM Plex Mono' }}>{formatCOP(total_bruto)}</strong>
+                  <strong style={{ color: '#C9A96E', fontFamily: 'JetBrains Mono' }}>{formatCOP(total_bruto)}</strong>
                 </span>
               </div>
             </>,
@@ -278,8 +278,8 @@ export const LoteForm: React.FC<LoteFormProps> = ({ editingLote, onClose }) => {
               )}
               <div style={{ padding: '10px 16px', borderTop: '1px solid var(--color-border)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 8 }}>
                 <div style={{ fontSize: '0.78rem', color: 'var(--color-text-muted)' }}>
-                  Total gastos: <strong style={{ color: '#E05C5C', fontFamily: 'IBM Plex Mono' }}>{formatCOP(total_gastos)}</strong>
-                  &nbsp;·&nbsp;Neto parcial: <strong style={{ color: '#4CAF82', fontFamily: 'IBM Plex Mono' }}>{formatCOP(total_neto)}</strong>
+                  Total gastos: <strong style={{ color: '#D4614A', fontFamily: 'JetBrains Mono' }}>{formatCOP(total_gastos)}</strong>
+                  &nbsp;·&nbsp;Neto parcial: <strong style={{ color: '#C9A96E', fontFamily: 'JetBrains Mono' }}>{formatCOP(total_neto)}</strong>
                 </div>
               </div>
             </>,
@@ -318,12 +318,12 @@ export const LoteForm: React.FC<LoteFormProps> = ({ editingLote, onClose }) => {
               )}
               <div style={{ padding: '10px 16px', borderTop: '1px solid var(--color-border)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 8 }}>
                 <div style={{ fontSize: '0.78rem', color: 'var(--color-text-muted)' }}>
-                  Distribuido: <strong style={{ color: '#E8A838', fontFamily: 'IBM Plex Mono' }}>{formatCOP(total_distribuido)}</strong>
+                  Distribuido: <strong style={{ color: '#C9A96E', fontFamily: 'JetBrains Mono' }}>{formatCOP(total_distribuido)}</strong>
                   &nbsp;·&nbsp;Saldo libre:&nbsp;
-                  <strong style={{ fontFamily: 'IBM Plex Mono', color: saldo_libre < 0 ? '#E05C5C' : '#4CAF82' }}>
+                  <strong style={{ fontFamily: 'JetBrains Mono', color: saldo_libre < 0 ? '#D4614A' : '#C9A96E' }}>
                     {formatCOP(saldo_libre)}
                   </strong>
-                  {saldo_libre < 0 && <span style={{ color: '#E05C5C', marginLeft: 6 }}>⚠ Distribuido excede el neto</span>}
+                  {saldo_libre < 0 && <span style={{ color: '#D4614A', marginLeft: 6 }}>⚠ Distribuido excede el neto</span>}
                 </div>
               </div>
             </>,
@@ -339,10 +339,10 @@ export const LoteForm: React.FC<LoteFormProps> = ({ editingLote, onClose }) => {
             <div className="summary-row">
               {[
                 { label: 'Bruto', value: total_bruto, color: 'var(--color-text-primary)' },
-                { label: 'Gastos', value: total_gastos, color: '#E05C5C' },
-                { label: 'Neto', value: total_neto, color: '#4CAF82' },
-                { label: 'Distribuido', value: total_distribuido, color: '#E8A838' },
-                { label: 'Saldo libre', value: saldo_libre, color: saldo_libre < 0 ? '#E05C5C' : '#4CAF82' },
+                { label: 'Gastos', value: total_gastos, color: '#D4614A' },
+                { label: 'Neto', value: total_neto, color: '#C9A96E' },
+                { label: 'Distribuido', value: total_distribuido, color: '#C9A96E' },
+                { label: 'Saldo libre', value: saldo_libre, color: saldo_libre < 0 ? '#D4614A' : '#C9A96E' },
               ].map(({ label, value, color }) => (
                 <div key={label} className="summary-item">
                   <span style={{ fontSize: '0.68rem', color: 'var(--color-text-muted)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em' }}>{label}</span>

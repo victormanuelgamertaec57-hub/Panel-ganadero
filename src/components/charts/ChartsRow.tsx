@@ -13,7 +13,7 @@ const ChartTooltip = ({ active, payload, label }: { active?: boolean; payload?: 
     <div style={{ background: 'var(--color-surface-2)', border: '1px solid var(--color-border)', borderRadius: 8, padding: '10px 14px' }}>
       {label && <p style={{ fontSize: '0.75rem', color: 'var(--color-text-muted)', marginBottom: 4 }}>{label}</p>}
       {payload.map((p, i) => (
-        <p key={i} style={{ fontSize: '0.875rem', fontWeight: 600, color: p.color ?? '#4CAF82' }}>{formatCOP(p.value)}</p>
+        <p key={i} style={{ fontSize: '0.875rem', fontWeight: 600, color: p.color ?? '#C9A96E' }}>{formatCOP(p.value)}</p>
       ))}
     </div>
   );
@@ -47,7 +47,7 @@ const Empty: React.FC<{ msg: string }> = ({ msg }) => (
   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: 180, color: 'var(--color-text-muted)', fontSize: '0.85rem' }}>{msg}</div>
 );
 
-const axisStyle = { fontSize: 11, fill: '#555A7A', fontFamily: 'Plus Jakarta Sans' };
+const axisStyle = { fontSize: 11, fill: '#555A7A', fontFamily: 'DM Sans' };
 const cardTitle: React.CSSProperties = { fontSize: '0.75rem', fontWeight: 700, color: 'var(--color-text-secondary)', marginBottom: 16, textTransform: 'uppercase' as const, letterSpacing: '0.07em' };
 
 export const ChartsRow: React.FC = () => {
@@ -86,8 +86,8 @@ export const ChartsRow: React.FC = () => {
               <CartesianGrid strokeDasharray="3 3" stroke="#2E3250" vertical={false} />
               <XAxis dataKey="name" tick={axisStyle} axisLine={false} tickLine={false} />
               <YAxis tick={axisStyle} axisLine={false} tickLine={false} tickFormatter={v => `$${(v / 1_000_000).toFixed(1)}M`} />
-              <Tooltip content={<ChartTooltip />} cursor={{ fill: 'rgba(76,175,130,0.08)' }} />
-              <Bar dataKey="value" fill="#4CAF82" radius={[4, 4, 0, 0]} maxBarSize={40} />
+              <Tooltip content={<ChartTooltip />} cursor={{ fill: 'rgba(201,169,110,0.08)' }} />
+              <Bar dataKey="value" fill="#C9A96E" radius={[4, 4, 0, 0]} maxBarSize={40} />
             </BarChart>
           </ResponsiveContainer>
         )}

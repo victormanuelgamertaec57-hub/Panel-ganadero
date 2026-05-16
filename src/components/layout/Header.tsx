@@ -5,22 +5,28 @@ import { useApp } from '../../context';
 import { formatRelativeTime, todayISO } from '../../utils/formatters';
 import type { DateRangePreset } from '../../types';
 
-const BullIcon: React.FC = () => (
-  <svg width="36" height="36" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect width="100" height="100" rx="18" fill="#4CAF82"/>
-    <path d="M25 40 C20 30 18 22 28 20 C32 19 35 24 35 28 C35 24 38 19 42 20 L50 20 C54 19 57 24 57 28 C57 24 60 19 64 20 C74 22 72 30 67 40 L65 45 C68 48 70 52 70 57 C70 70 61 78 50 78 C39 78 30 70 30 57 C30 52 32 48 35 45 Z" fill="white" opacity="0.95"/>
-    <circle cx="41" cy="52" r="4" fill="#4CAF82"/>
-    <circle cx="59" cy="52" r="4" fill="#4CAF82"/>
-    <ellipse cx="50" cy="63" rx="5" ry="4" fill="#4CAF82" opacity="0.6"/>
-  </svg>
+const BrandMark: React.FC = () => (
+  <div style={{
+    width: 36, height: 36, borderRadius: 10, flexShrink: 0,
+    background: 'linear-gradient(135deg, #D4B47A 0%, #B8955A 45%, #8B6A4E 100%)',
+    display: 'grid', placeItems: 'center',
+    boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.25), 0 6px 14px rgba(201,169,110,0.18)',
+    position: 'relative',
+  }}>
+    <span style={{
+      fontFamily: "'Playfair Display', Georgia, serif",
+      fontWeight: 700, fontSize: 17,
+      color: '#1a1410', fontStyle: 'italic', lineHeight: 1, zIndex: 1,
+    }}>G</span>
+  </div>
 );
 
 const TABS: { id: TabId; label: string; icon: React.ReactNode }[] = [
-  { id: 'dashboard',     label: 'Dashboard',     icon: <LayoutDashboard size={18} /> },
-  { id: 'lotes',         label: 'Lotes',          icon: <Package size={18} /> },
-  { id: 'registros',     label: 'Registros',      icon: <ClipboardList size={18} /> },
-  { id: 'reportes',      label: 'Reportes',       icon: <BarChart2 size={18} /> },
-  { id: 'configuracion', label: 'Config',         icon: <Settings size={18} /> },
+  { id: 'dashboard',     label: 'Dashboard',  icon: <LayoutDashboard size={18} /> },
+  { id: 'lotes',         label: 'Lotes',      icon: <Package size={18} /> },
+  { id: 'registros',     label: 'Registros',  icon: <ClipboardList size={18} /> },
+  { id: 'reportes',      label: 'Reportes',   icon: <BarChart2 size={18} /> },
+  { id: 'configuracion', label: 'Config',     icon: <Settings size={18} /> },
 ];
 
 const PRESETS: { label: string; value: DateRangePreset }[] = [
@@ -54,8 +60,10 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, onTabChange, onNewVen
   return (
     <>
       <header style={{
-        backgroundColor: 'var(--color-surface)',
-        borderBottom: '1px solid var(--color-border)',
+        background: 'rgba(13,15,14,0.88)',
+        backdropFilter: 'blur(20px) saturate(140%)',
+        WebkitBackdropFilter: 'blur(20px) saturate(140%)',
+        borderBottom: '1px solid rgba(255,255,255,0.06)',
         position: 'sticky', top: 0, zIndex: 40,
       }}>
         <div className="header-inner" style={{ maxWidth: 1400, margin: '0 auto', padding: '0 24px' }}>
@@ -63,18 +71,27 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, onTabChange, onNewVen
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: 68 }}>
             {/* Logo */}
             <div style={{ display: 'flex', alignItems: 'center', gap: 12, flexShrink: 0 }}>
-              <BullIcon />
+              <BrandMark />
               <div>
-                <h1 style={{ fontSize: '1.1rem', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.1, color: 'var(--color-text-primary)' }}>
+                <h1 style={{
+                  fontSize: '1.05rem', fontWeight: 600,
+                  fontFamily: "'Playfair Display', Georgia, serif",
+                  letterSpacing: '-0.01em', lineHeight: 1.1,
+                  color: 'var(--color-text-primary)',
+                }}>
                   GanApp
                 </h1>
-                <p style={{ fontSize: '0.68rem', color: 'var(--color-text-muted)', lineHeight: 1, letterSpacing: '0.02em' }}>
-                  Control ganadero inteligente
+                <p style={{
+                  fontSize: '0.62rem', color: 'var(--color-accent)',
+                  lineHeight: 1, letterSpacing: '0.18em',
+                  textTransform: 'uppercase', fontWeight: 500, marginTop: 2,
+                }}>
+                  Panel Ganadero
                 </p>
               </div>
             </div>
 
-            {/* Nav tabs — hidden on mobile via CSS class */}
+            {/* Nav tabs — hidden on mobile */}
             <nav className="header-nav-desktop" style={{ display: 'flex', gap: 2, flex: 1, justifyContent: 'center', padding: '0 24px', overflowX: 'auto' }}>
               {TABS.map(tab => (
                 <button
@@ -89,12 +106,12 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, onTabChange, onNewVen
 
             {/* Actions */}
             <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexShrink: 0 }}>
-              {/* Sync status badge */}
+              {/* Sync status */}
               <div style={{
                 display: 'flex', alignItems: 'center', gap: 6,
                 padding: '5px 10px', borderRadius: 8,
-                backgroundColor: 'var(--color-surface-2)',
-                border: '1px solid var(--color-border)',
+                background: 'rgba(255,255,255,0.04)',
+                border: '1px solid rgba(255,255,255,0.08)',
                 fontSize: '0.72rem', color: 'var(--color-text-muted)',
                 cursor: syncOk ? 'pointer' : 'default',
               }}
@@ -103,7 +120,7 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, onTabChange, onNewVen
               >
                 <span className={`sync-dot ${syncErr ? 'sync-dot-red' : (syncing || pending) ? 'sync-dot-amber' : syncOk ? 'sync-dot-green' : ''}`}
                   style={{ width: 7, height: 7, borderRadius: '50%', flexShrink: 0,
-                    backgroundColor: syncErr ? '#E05C5C' : (syncing || pending) ? '#E8A838' : syncOk ? '#4CAF82' : '#555A7A' }} />
+                    backgroundColor: syncErr ? '#D4614A' : (syncing || pending) ? '#4A7C59' : syncOk ? '#C9A96E' : '#8A8880' }} />
                 {syncing ? (
                   <span style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
                     <RefreshCw size={10} style={{ animation: 'spin 0.8s linear infinite' }} /> Sync…
@@ -117,7 +134,7 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, onTabChange, onNewVen
                     <WifiOff size={10} /> Error
                   </span>
                 ) : pending ? (
-                  <span style={{ color: 'var(--color-amber)', display: 'flex', alignItems: 'center', gap: 4 }}>
+                  <span style={{ color: 'var(--color-amber-light)', display: 'flex', alignItems: 'center', gap: 4 }}>
                     <Clock size={10} /> Pendiente
                   </span>
                 ) : (
@@ -139,7 +156,7 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, onTabChange, onNewVen
             </div>
           </div>
 
-          {/* Date range row — only show on dashboard/registros/reportes */}
+          {/* Date range row */}
           {(activeTab === 'dashboard' || activeTab === 'registros' || activeTab === 'reportes') && (
             <div className="date-range-row" style={{ display: 'flex', alignItems: 'center', gap: 6, paddingBottom: 10, flexWrap: 'wrap' }}>
               <div style={{ display: 'flex', gap: 3, flexWrap: 'wrap' }}>
@@ -151,11 +168,9 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, onTabChange, onNewVen
                       padding: '4px 11px', borderRadius: 20, fontSize: '0.75rem', fontWeight: 500,
                       border: '1px solid', cursor: 'pointer', fontFamily: 'inherit',
                       transition: 'all 0.15s ease',
-                      borderColor: dateRange.preset === p.value ? 'var(--color-accent)' : 'var(--color-border)',
-                      backgroundColor: dateRange.preset === p.value
-                        ? 'rgba(76,175,130,0.15)' : 'transparent',
-                      color: dateRange.preset === p.value
-                        ? 'var(--color-accent-light)' : 'var(--color-text-muted)',
+                      borderColor: dateRange.preset === p.value ? 'rgba(201,169,110,0.5)' : 'rgba(255,255,255,0.08)',
+                      backgroundColor: dateRange.preset === p.value ? 'rgba(201,169,110,0.12)' : 'transparent',
+                      color: dateRange.preset === p.value ? 'var(--color-accent)' : 'var(--color-text-muted)',
                     }}
                   >
                     {p.label}
@@ -178,7 +193,7 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, onTabChange, onNewVen
         </div>
       </header>
 
-      {/* Bottom tab bar — mobile only, shown via CSS */}
+      {/* Bottom tab bar — mobile only */}
       <nav className="bottom-tab-bar">
         {TABS.map(tab => (
           <button

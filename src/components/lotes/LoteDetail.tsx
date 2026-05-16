@@ -54,10 +54,10 @@ export const LoteDetail: React.FC<LoteDetailProps> = ({ lote, onClose, onEdit })
             <div className="summary-row">
               {[
                 { label: 'Bruto', value: lote.total_bruto, color: 'var(--color-text-primary)' },
-                { label: 'Gastos', value: lote.total_gastos, color: '#E05C5C' },
-                { label: 'Neto', value: lote.total_neto, color: '#4CAF82' },
-                { label: 'Distribuido', value: distribuido, color: '#E8A838' },
-                { label: 'Saldo libre', value: saldo, color: saldo < 0 ? '#E05C5C' : '#4CAF82' },
+                { label: 'Gastos', value: lote.total_gastos, color: '#D4614A' },
+                { label: 'Neto', value: lote.total_neto, color: '#C9A96E' },
+                { label: 'Distribuido', value: distribuido, color: '#C9A96E' },
+                { label: 'Saldo libre', value: saldo, color: saldo < 0 ? '#D4614A' : '#C9A96E' },
               ].map(({ label, value, color }) => (
                 <div key={label} className="summary-item">
                   <span style={{ fontSize: '0.65rem', color: 'var(--color-text-muted)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em' }}>{label}</span>
@@ -94,20 +94,20 @@ export const LoteDetail: React.FC<LoteDetailProps> = ({ lote, onClose, onEdit })
                   <tbody>
                     {lote.items.map(it => (
                       <tr key={it.id}>
-                        <td><span className="badge" style={{ backgroundColor: 'var(--color-surface-2)', color: 'var(--color-text-secondary)', fontFamily: 'IBM Plex Mono' }}>{it.codigo}</span></td>
+                        <td><span className="badge" style={{ backgroundColor: 'var(--color-surface-2)', color: 'var(--color-text-secondary)', fontFamily: 'JetBrains Mono' }}>{it.codigo}</span></td>
                         <td style={{ fontWeight: 500 }}>{it.descripcion}</td>
                         <td>{it.tipo_animal}</td>
-                        <td style={{ textAlign: 'right', fontFamily: 'IBM Plex Mono' }}>{it.cantidad}</td>
+                        <td style={{ textAlign: 'right', fontFamily: 'JetBrains Mono' }}>{it.cantidad}</td>
                         <td>{it.modalidad === 'por_kilo' ? 'Por kilo' : 'Por cabeza'}</td>
-                        <td style={{ textAlign: 'right', fontFamily: 'IBM Plex Mono', color: 'var(--color-text-secondary)' }}>
+                        <td style={{ textAlign: 'right', fontFamily: 'JetBrains Mono', color: 'var(--color-text-secondary)' }}>
                           {it.modalidad === 'por_kilo' ? `${(it.peso_total_kg ?? 0).toLocaleString('es-CO')} kg` : '—'}
                         </td>
-                        <td style={{ textAlign: 'right', fontFamily: 'IBM Plex Mono', color: 'var(--color-text-secondary)' }}>
+                        <td style={{ textAlign: 'right', fontFamily: 'JetBrains Mono', color: 'var(--color-text-secondary)' }}>
                           {it.modalidad === 'por_kilo'
                             ? formatCOP(it.precio_por_kg ?? 0) + '/kg'
                             : formatCOP(it.precio_por_cabeza ?? 0) + '/cab.'}
                         </td>
-                        <td style={{ textAlign: 'right', fontWeight: 700, color: '#4CAF82', fontFamily: 'IBM Plex Mono' }}>
+                        <td style={{ textAlign: 'right', fontWeight: 700, color: '#C9A96E', fontFamily: 'JetBrains Mono' }}>
                           {formatCOP(it.valor_total)}
                         </td>
                       </tr>
@@ -134,7 +134,7 @@ export const LoteDetail: React.FC<LoteDetailProps> = ({ lote, onClose, onEdit })
                     {lote.gastos_operativos.map(g => (
                       <tr key={g.id}>
                         <td>{g.descripcion}</td>
-                        <td style={{ textAlign: 'right', fontFamily: 'IBM Plex Mono', color: '#E05C5C', fontWeight: 600 }}>{formatCOP(g.monto)}</td>
+                        <td style={{ textAlign: 'right', fontFamily: 'JetBrains Mono', color: '#D4614A', fontWeight: 600 }}>{formatCOP(g.monto)}</td>
                       </tr>
                     ))}
                   </tbody>
@@ -161,7 +161,7 @@ export const LoteDetail: React.FC<LoteDetailProps> = ({ lote, onClose, onEdit })
                       <tr key={p.id}>
                         <td style={{ fontWeight: 500 }}>{p.beneficiario}</td>
                         <td style={{ color: 'var(--color-text-secondary)' }}>{p.concepto}</td>
-                        <td style={{ textAlign: 'right', fontFamily: 'IBM Plex Mono', color: '#E8A838', fontWeight: 600 }}>{formatCOP(p.monto)}</td>
+                        <td style={{ textAlign: 'right', fontFamily: 'JetBrains Mono', color: '#C9A96E', fontWeight: 600 }}>{formatCOP(p.monto)}</td>
                       </tr>
                     ))}
                   </tbody>

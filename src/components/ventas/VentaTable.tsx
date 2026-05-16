@@ -12,8 +12,8 @@ const PAGE_SIZE = 10;
 const SortIcon: React.FC<{ field: SortField; current: SortField | null; dir: SortDirection }> = ({ field, current, dir }) => {
   if (current !== field) return <ChevronsUpDown size={12} style={{ opacity: 0.35, marginLeft: 4 }} />;
   return dir === 'asc'
-    ? <ChevronUp size={12} style={{ marginLeft: 4, color: '#4CAF82' }} />
-    : <ChevronDown size={12} style={{ marginLeft: 4, color: '#4CAF82' }} />;
+    ? <ChevronUp size={12} style={{ marginLeft: 4, color: '#C9A96E' }} />
+    : <ChevronDown size={12} style={{ marginLeft: 4, color: '#C9A96E' }} />;
 };
 
 const selectStyle: React.CSSProperties = {
@@ -150,17 +150,17 @@ export const VentaTable: React.FC<VentaTableProps> = ({ onEdit }) => {
                       <Badge label={v.tipo_animal} colorMap={TIPO_ANIMAL_COLORS} />
                     </div>
                   </td>
-                  <td style={{ textAlign: 'right', fontFamily: 'IBM Plex Mono', fontSize: '0.82rem' }}>{v.peso_kg.toLocaleString('es-CO')} kg</td>
+                  <td style={{ textAlign: 'right', fontFamily: 'JetBrains Mono', fontSize: '0.82rem' }}>{v.peso_kg.toLocaleString('es-CO')} kg</td>
                   <td>
                     <span className="badge" style={{ backgroundColor: v.modalidad_venta === 'por_kilo' ? '#0d1e35' : '#1e0d2d', color: v.modalidad_venta === 'por_kilo' ? '#60a5fa' : '#c084fc' }}>
                       {v.modalidad_venta === 'por_kilo' ? 'Por kilo' : 'Por cabeza'}
                     </span>
                   </td>
-                  <td style={{ fontFamily: 'IBM Plex Mono', fontSize: '0.82rem', color: 'var(--color-text-secondary)' }}>
+                  <td style={{ fontFamily: 'JetBrains Mono', fontSize: '0.82rem', color: 'var(--color-text-secondary)' }}>
                     {v.modalidad_venta === 'por_kilo' ? formatCOP(v.precio_por_kg ?? 0) + '/kg' : formatCOP(v.precio_por_cabeza ?? 0)}
                   </td>
                   <td style={{ textAlign: 'right' }}>
-                    <span className="mono tabular" style={{ fontWeight: 700, color: '#4CAF82', fontSize: '0.9rem' }}>{formatCOP(v.valor_total)}</span>
+                    <span className="mono tabular" style={{ fontWeight: 700, color: '#C9A96E', fontSize: '0.9rem' }}>{formatCOP(v.valor_total)}</span>
                   </td>
                   <td>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
@@ -181,9 +181,9 @@ export const VentaTable: React.FC<VentaTableProps> = ({ onEdit }) => {
             <tfoot>
               <tr style={{ backgroundColor: 'var(--color-surface-2)' }}>
                 <td colSpan={2} style={{ fontSize: '0.78rem', color: 'var(--color-text-muted)', fontWeight: 600, padding: '10px 14px' }}>Subtotal ({filtered.length})</td>
-                <td style={{ textAlign: 'right', fontFamily: 'IBM Plex Mono', fontSize: '0.78rem', color: 'var(--color-text-secondary)', padding: '10px 14px' }}>{subtotalPeso.toLocaleString('es-CO')} kg</td>
+                <td style={{ textAlign: 'right', fontFamily: 'JetBrains Mono', fontSize: '0.78rem', color: 'var(--color-text-secondary)', padding: '10px 14px' }}>{subtotalPeso.toLocaleString('es-CO')} kg</td>
                 <td colSpan={2} />
-                <td style={{ textAlign: 'right', fontWeight: 700, color: '#4CAF82', fontFamily: 'IBM Plex Mono', fontSize: '0.9rem', padding: '10px 14px' }}>{formatCOP(subtotalValor)}</td>
+                <td style={{ textAlign: 'right', fontWeight: 700, color: '#C9A96E', fontFamily: 'JetBrains Mono', fontSize: '0.9rem', padding: '10px 14px' }}>{formatCOP(subtotalValor)}</td>
                 <td colSpan={3} />
               </tr>
             </tfoot>
@@ -205,7 +205,7 @@ export const VentaTable: React.FC<VentaTableProps> = ({ onEdit }) => {
               .map((p, i) =>
                 p === 'ellipsis' ? <span key={`e${i}`} style={{ padding: '6px 4px', color: 'var(--color-text-muted)', fontSize: '0.8rem' }}>…</span> : (
                   <button key={p} className="btn" onClick={() => setPage(p as number)}
-                    style={{ padding: '6px 10px', minWidth: 34, fontSize: '0.8rem', backgroundColor: page === p ? '#4CAF82' : 'transparent', color: page === p ? '#fff' : 'var(--color-text-secondary)', borderColor: page === p ? '#4CAF82' : 'transparent' }}>
+                    style={{ padding: '6px 10px', minWidth: 34, fontSize: '0.8rem', backgroundColor: page === p ? '#C9A96E' : 'transparent', color: page === p ? '#fff' : 'var(--color-text-secondary)', borderColor: page === p ? '#C9A96E' : 'transparent' }}>
                     {p}
                   </button>
                 )

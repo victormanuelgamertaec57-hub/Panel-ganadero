@@ -46,7 +46,7 @@ export const Configuracion: React.FC = () => {
         <div style={{ display: 'flex', flexDirection: 'column', gap: 18 }}>
           {!hasClientId && (
             <div style={{ padding: '14px 16px', borderRadius: 10, backgroundColor: 'rgba(232,168,56,0.1)', border: '1px solid rgba(232,168,56,0.3)' }}>
-              <p style={{ fontSize: '0.82rem', color: '#E8A838', lineHeight: 1.6 }}>
+              <p style={{ fontSize: '0.82rem', color: '#C9A96E', lineHeight: 1.6 }}>
                 <strong>⚠ VITE_GOOGLE_CLIENT_ID no configurado.</strong> Crea un archivo <code style={{ background: 'rgba(232,168,56,0.15)', padding: '1px 6px', borderRadius: 4 }}>.env</code> con tus credenciales de Google Cloud. Ver README para instrucciones.
               </p>
             </div>
@@ -56,7 +56,7 @@ export const Configuracion: React.FC = () => {
             <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
               {/* Status card */}
               <div style={{ padding: '16px 18px', borderRadius: 10, backgroundColor: 'rgba(76,175,130,0.08)', border: '1px solid rgba(76,175,130,0.25)', display: 'flex', alignItems: 'center', gap: 12 }}>
-                <CheckCircle size={20} color="#4CAF82" />
+                <CheckCircle size={20} color="#C9A96E" />
                 <div style={{ flex: 1 }}>
                   <p style={{ fontWeight: 600, fontSize: '0.9rem', color: 'var(--color-text-primary)' }}>
                     {sheetsConfig.spreadsheetName ?? 'Google Sheet'}
@@ -143,7 +143,7 @@ export const Configuracion: React.FC = () => {
                 'Las hojas se crean automáticamente si no existen',
               ].map(item => (
                 <li key={item} style={{ fontSize: '0.8rem', color: 'var(--color-text-secondary)', display: 'flex', alignItems: 'flex-start', gap: 8 }}>
-                  <span style={{ color: '#4CAF82', marginTop: 2, flexShrink: 0 }}>✓</span>
+                  <span style={{ color: '#C9A96E', marginTop: 2, flexShrink: 0 }}>✓</span>
                   {item}
                 </li>
               ))}
@@ -159,7 +159,7 @@ export const Configuracion: React.FC = () => {
             Todos los datos se almacenan en el navegador mediante <code style={{ background: 'var(--color-surface-2)', padding: '1px 6px', borderRadius: 4 }}>localStorage</code>. No se envían a ningún servidor externo, excepto a Google Sheets si está configurado.
           </p>
           <div style={{ padding: '12px 14px', borderRadius: 8, backgroundColor: 'var(--color-surface-2)', border: '1px solid var(--color-border)' }}>
-            <p style={{ fontSize: '0.75rem', color: 'var(--color-text-muted)', fontFamily: 'IBM Plex Mono' }}>
+            <p style={{ fontSize: '0.75rem', color: 'var(--color-text-muted)', fontFamily: 'JetBrains Mono' }}>
               Claves: panel_ganadero_ventas · lotes_ganado · ganapp_sheets_config
             </p>
           </div>

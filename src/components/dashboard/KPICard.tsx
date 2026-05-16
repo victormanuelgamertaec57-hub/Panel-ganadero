@@ -47,7 +47,7 @@ interface KPICardProps {
 export const KPICard: React.FC<KPICardProps> = ({
   icon, label, value, subtext, trend = 'neutral', accent, sparkline, bgIcon,
 }) => {
-  const trendColor = trend === 'up' ? '#4CAF82' : trend === 'down' ? '#E05C5C' : 'var(--color-text-muted)';
+  const trendColor = trend === 'up' ? '#C9A96E' : trend === 'down' ? '#E05C5C' : 'var(--color-text-muted)';
   const [displayed, setDisplayed] = useState('0');
   const animRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -117,7 +117,7 @@ export const KPICard: React.FC<KPICardProps> = ({
           {subtext}
         </p>
         {sparkline && sparkline.length >= 2 && (
-          <Sparkline data={sparkline} color={accent ? '#4CAF82' : '#8B92B8'} />
+          <Sparkline data={sparkline} color={accent ? '#C9A96E' : '#8B92B8'} />
         )}
       </div>
     </div>
